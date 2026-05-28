@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: trucker-dispute-server
+    env: node
+    repo: https://github.com/Keathstone/trucker-dispute-server
+    branch: main
+    buildCommand: npm install --production
+    startCommand: node index.js
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    healthCheckPath: /api/health
+    plan: free
